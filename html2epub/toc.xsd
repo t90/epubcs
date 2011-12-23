@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.daisy.org/z3986/2005/ncx/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xs:element name="ncx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="head">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="meta">
+                <xs:complexType>
+                  <xs:attribute name="content" type="xs:string" use="required" />
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="docTitle">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="text" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="navMap">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="navPoint">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="navLabel">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="text" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="content">
+                      <xs:complexType>
+                        <xs:attribute name="src" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="navPoint">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="navLabel">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="text" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="content">
+                            <xs:complexType>
+                              <xs:attribute name="src" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="navPoint">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="navLabel">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="text" type="xs:unsignedShort" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="content">
+                                  <xs:complexType>
+                                    <xs:attribute name="src" type="xs:string" use="required" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="id" type="xs:string" use="required" />
+                              <xs:attribute name="playOrder" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required" />
+                        <xs:attribute name="playOrder" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:string" use="required" />
+                  <xs:attribute name="playOrder" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" use="required" />
+      <xs:attribute ref="xml:lang" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

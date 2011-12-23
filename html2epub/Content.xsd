@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:dcterms="http://purl.org/dc/terms/" xmlns:calibre="http://calibre.kovidgoyal.net/2009/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dc="http://purl.org/dc/elements/1.1/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.idpf.org/2007/opf" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="references/Elements.xsd" />
+  <xs:element name="package">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="metadata">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element ref="dc:description" />
+                <xs:element ref="dc:language" />
+                <xs:element ref="dc:creator" />
+                <xs:element name="meta">
+                  <xs:complexType>
+                    <xs:attribute name="name" type="xs:string" use="required" />
+                    <xs:attribute name="content" type="xs:string" use="required" />
+                  </xs:complexType>
+                </xs:element>
+                <xs:element ref="dc:title" />
+                <xs:element ref="dc:date" />
+                <xs:element ref="dc:contributor" />
+                <xs:element ref="dc:identifier" />
+                <xs:element ref="dc:subject" />
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="manifest">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="item">
+                <xs:complexType>
+                  <xs:attribute name="href" type="xs:string" use="required" />
+                  <xs:attribute name="id" type="xs:string" use="required" />
+                  <xs:attribute name="media-type" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="spine">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="itemref">
+                <xs:complexType>
+                  <xs:attribute name="idref" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="toc" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="guide">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="reference">
+                <xs:complexType>
+                  <xs:attribute name="href" type="xs:string" use="required" />
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                  <xs:attribute name="title" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" use="required" />
+      <xs:attribute name="unique-identifier" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:attribute name="file-as" type="xs:string" />
+  <xs:attribute name="role" type="xs:string" />
+</xs:schema>

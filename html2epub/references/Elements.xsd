@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://purl.org/dc/elements/1.1/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.idpf.org/2007/opf" />
+  <xs:element name="description" type="xs:string" />
+  <xs:element name="language" type="xs:string" />
+  <xs:element name="creator">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute xmlns:q1="http://www.idpf.org/2007/opf" ref="q1:file-as" use="required" />
+          <xs:attribute xmlns:q2="http://www.idpf.org/2007/opf" ref="q2:role" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title" type="xs:string" />
+  <xs:element name="date" type="xs:dateTime" />
+  <xs:element name="contributor">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute xmlns:q3="http://www.idpf.org/2007/opf" ref="q3:role" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="identifier">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="id" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="subject" type="xs:string" />
+</xs:schema>
